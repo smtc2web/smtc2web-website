@@ -64,7 +64,7 @@ if (data.font_family) {
 
 ## 默认主题变更参考
 
-- [移除主题内置字体，使用系统已安装的字体](https://github.com/AkarinLiu/smtc2web-theme-spotify/commit/5017a16a3e7beef6e28b1dbb43f98c8e8196280f)
+- [移除主题内置字体，使用系统已安装的字体](https://github.com/smtc2web/smtc2web-theme-spotify/commit/5017a16a3e7beef6e28b1dbb43f98c8e8196280f)
 
 变更文件：
 - `style.css`：删除 `@font-face`，使用 `var(--smtc-font-family, ...)`

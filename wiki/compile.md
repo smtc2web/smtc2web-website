@@ -3,7 +3,7 @@
 ## 克隆源代码
 
 ```bash
-git clone --recurse-submodules https://github.com/AkarinLiu/smtc2web.git 
+git clone --recurse-submodules https://github.com/smtc2web/smtc2web.git 
 ```
 
 ## 现有代码用户

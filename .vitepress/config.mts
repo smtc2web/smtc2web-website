@@ -11,7 +11,7 @@ export default defineConfig({
   cleanUrls: true,
   themeConfig: {
     editLink: true,
-    docsRepo: "https://github.com/AkarinLiu/smtc2web-website",
+    docsRepo: "https://github.com/smtc2web/smtc2web-website",
     docsBranch: "master",
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -26,13 +26,13 @@ export default defineConfig({
         text: "Wiki",
         items: [
           { text: "官方 Wiki", link: "/wiki" },
-          { text: "DeepWiki", link: "https://deepwiki.com/AkarinLiu/smtc2web" },
+          { text: "DeepWiki", link: "https://deepwiki.com/smtc2web/smtc2web" },
         ],
       },
     ],
     footer: {
       message:
-        '基于 <a href="https://github.com/AkarinLiu/smtc2web">MIT 许可</a> 发布',
+        '基于 <a href="https://github.com/smtc2web/smtc2web">MIT 许可</a> 发布',
       copyright: "Copyright © 2025–2026 AkarinLiu",
     },
     sidebar: {
@@ -65,7 +65,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/AkarinLiu/smtc2web" },
+      { icon: "github", link: "https://github.com/smtc2web/smtc2web" },
     ],
   },
 });

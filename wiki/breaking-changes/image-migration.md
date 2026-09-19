@@ -77,7 +77,7 @@ setInterval(async () => {
 
 ## 默认主题变更参考
 
-- [更改专辑封面图代码](https://github.com/AkarinLiu/smtc2web-theme-spotify/commit/2f10174a2889965c928da1be87da42df6ebff4b1)
+- [更改专辑封面图代码](https://github.com/smtc2web/smtc2web-theme-spotify/commit/2f10174a2889965c928da1be87da42df6ebff4b1)
 
 变更文件：
 - `main.js`：删除 `album_art` 的 Base64 到 `src` 赋值逻辑

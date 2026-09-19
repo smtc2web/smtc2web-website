@@ -24,5 +24,5 @@
 
 如果您对本隐私政策有任何疑问或顾虑，请通过以下方式联系我们：
 
-- **GitHub Issues**：[https://github.com/AkarinLiu/smtc2web-website/issues](https://github.com/AkarinLiu/smtc2web-website/issues)
+- **GitHub Issues**：[https://github.com/smtc2web/smtc2web-website/issues](https://github.com/smtc2web/smtc2web-website/issues)
 - **电子邮件**：通过 GitHub 个人资料获取联系方式
