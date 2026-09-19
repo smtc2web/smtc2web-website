@@ -40,8 +40,8 @@ async function main() {
 
   const date = new Date().toISOString().slice(0, 10);
 
-  const categoryInput = await ask("分类 (默认: 公告板): ");
-  const category = categoryInput || "公告板";
+  const categoryInput = await ask("分类 (默认: 更新日志): ");
+  const category = categoryInput || "更新日志";
 
   const authorInput = await ask("作者 (默认: AkarinLiu): ");
   const author = authorInput || "AkarinLiu";
