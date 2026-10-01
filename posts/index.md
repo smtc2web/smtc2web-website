@@ -2,8 +2,6 @@
 title: 博客
 ---
 
-# 博客
-
 <script setup>
 import { data } from "../.vitepress/posts.data.mjs";
 

@@ -8,6 +8,11 @@ const feedMeta = {
   description: "一个直播时显示正在播放音乐的小工具",
   language: "zh-cn",
 };
+const feedMetaEn = {
+  title: "smtc2web Blog",
+  description: "A small tool that shows what music is playing while you livestream",
+  language: "en-us",
+};
 
 let renderMarkdown: ((markdown: string) => string) | undefined;
 
@@ -33,11 +38,17 @@ function plainText(markdown: string) {
     .slice(0, 160);
 }
 
-function generateFeed(srcDir: string, outDir: string) {
+function generateFeed(
+  srcDir: string,
+  outDir: string,
+  meta: { title: string; description: string; language: string },
+  feedFile: string,
+  includeFile: (file: string) => boolean
+) {
   const postsDir = path.join(srcDir, "posts");
   const items = fs
     .readdirSync(postsDir)
-    .filter((file) => file.endsWith(".md") && file !== "index.md")
+    .filter((file) => file.endsWith(".md") && includeFile(file))
     .map((file) => {
       const fullPath = path.join(postsDir, file);
       const raw = fs.readFileSync(fullPath, "utf8");
@@ -45,7 +56,11 @@ function generateFeed(srcDir: string, outDir: string) {
       const frontmatter: Record<string, string> = {};
       for (const line of block.split(/\r?\n/)) {
         const kv = line.match(/^(\w+):\s*(.+)$/);
-        if (kv) frontmatter[kv[1]] = kv[2].trim();
+        if (kv)
+          frontmatter[kv[1]] = kv[2]
+            .trim()
+            .replace(/^"(.*)"$/, "$1")
+            .replace(/^'(.*)'$/, "$1");
       }
       const body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, "");
       const url = `${siteUrl}/posts/${file.replace(/\.md$/, "")}`;
@@ -62,11 +77,11 @@ function generateFeed(srcDir: string, outDir: string) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${escapeXml(feedMeta.title)}</title>
+    <title>${escapeXml(meta.title)}</title>
     <link>${siteUrl}/posts/</link>
-    <description>${escapeXml(feedMeta.description)}</description>
-    <language>${feedMeta.language}</language>
-    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>${escapeXml(meta.description)}</description>
+    <language>${meta.language}</language>
+    <atom:link href="${siteUrl}/${feedFile}" rel="self" type="application/rss+xml"/>
 ${items
   .map(
     (item) => `    <item>
@@ -81,8 +96,8 @@ ${items
   </channel>
 </rss>
 `;
-  fs.writeFileSync(path.join(outDir, "feed.xml"), xml, "utf8");
-  console.log(`✓ RSS generated feed.xml (${items.length} posts)`);
+  fs.writeFileSync(path.join(outDir, feedFile), xml, "utf8");
+  console.log(`✓ RSS generated ${feedFile} (${items.length} posts)`);
 }
 
 // https://vitepress.dev/reference/site-config
@@ -99,9 +114,31 @@ export default defineConfig({
         href: "/feed.xml",
       },
     ],
+    [
+      "link",
+      {
+        rel: "alternate",
+        type: "application/rss+xml",
+        title: "smtc2web Blog",
+        href: "/feed.en.xml",
+      },
+    ],
   ],
   buildEnd(siteConfig) {
-    generateFeed(siteConfig.srcDir, siteConfig.outDir);
+    generateFeed(
+      siteConfig.srcDir,
+      siteConfig.outDir,
+      feedMeta,
+      "feed.xml",
+      (file) => file !== "index.md" && !file.endsWith(".en.md")
+    );
+    generateFeed(
+      siteConfig.srcDir,
+      siteConfig.outDir,
+      feedMetaEn,
+      "feed.en.xml",
+      (file) => file.endsWith(".en.md") && file !== "index.en.md"
+    );
   },
   markdown: {
     config(md) {
