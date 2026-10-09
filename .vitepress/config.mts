@@ -158,6 +158,7 @@ export default defineConfig({
     nav: [
       { text: "主页", link: "/" },
       { text: "博客", link: "/posts/" },
+      { text: "主题商店", link "https://themes.smtc2web.org" },
       { text: "关于", link: "/about" },
       { text: "隐私政策", link: "/privacy" },
       { text: "联系我", link: "/contact" },
