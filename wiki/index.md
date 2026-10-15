@@ -9,3 +9,7 @@
 
 - [主题不再内置字体](./breaking-changes/theme-font.md)
 - [图片 API 变更](./breaking-changes/image-migration.md)
+
+## 逆向报告
+
+- [2026年10月15日 smtc2web Windows 安装器卡死 逆向分析报告](./reverse-report/20261015.md)
