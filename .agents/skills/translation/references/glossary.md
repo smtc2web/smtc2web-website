@@ -32,6 +32,8 @@ Columns: `源 (zh-CN)` · `English` · `Notes`.
 | 播放状态 | playback state | |
 | 曲目 | track | |
 | 专辑封面 | album art | |
+| 终末地 | Arknights: Endfield | Official English title; use the full name on first mention in a post. |
+| 终末地风格 | Arknights: Endfield style | UI theme flavour; AGENTS.md writes it as `"Arknights: Endfield"-flavoured`. |
 
 ## Blog & docs metadata
 
@@ -104,6 +106,7 @@ Terms that recur in `posts/*.md` and were not covered above.
 | 修复版本 | Patched version | Security table header. |
 | 创建日期 / 修复日期 | Created / Fixed | Security table headers. |
 | 严重 / 高 / 中 / 低 | Critical / High / Medium / Low | Security severity values. |
+| 网站翻新 | website refresh | Tag value and title wording; never "renovation". |
 
 ## Other languages
 
