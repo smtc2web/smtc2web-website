@@ -1,8 +1,9 @@
 // https://vitepress.dev/guide/custom-theme
-import type { Theme } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import CustomLayout from './CustomLayout.vue'
-import './style.css'
+import type { Theme } from "vitepress";
+import DefaultTheme from "vitepress/theme";
+import CustomLayout from "./CustomLayout.vue";
+import "./endfield.css";
+import "./style.css";
 
 export default {
   extends: DefaultTheme,
@@ -19,5 +20,5 @@ export default {
     g.src = "https://analytics.akarinliu.com/matomo.js";
     document.head.appendChild(g);
     router.onAfterRouteChanged = () => _paq.push(["trackPageView"]);
-  }
-} satisfies Theme
+  },
+} satisfies Theme;

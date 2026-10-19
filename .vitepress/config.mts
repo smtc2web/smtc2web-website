@@ -104,7 +104,11 @@ ${items
 export default defineConfig({
   title: "smtc2web",
   description: "一个直播时显示正在播放音乐的小工具",
+  lang: "zh-CN",
   head: [
+    ["meta", { name: "theme-color", content: "#161616" }],
+    ["link", { rel: "icon", type: "image/png", href: "/favicon.png" }],
+    ["link", { rel: "apple-touch-icon", href: "/favicon.png" }],
     [
       "link",
       {
@@ -150,10 +154,37 @@ export default defineConfig({
   },
   lastUpdated: true,
   cleanUrls: true,
+  srcExclude: ["AGENTS.md", "scripts/**"],
   themeConfig: {
-    editLink: true,
-    docsRepo: "https://github.com/smtc2web/smtc2web-website",
-    docsBranch: "master",
+    logo: "/favicon.png",
+    editLink: {
+      pattern: "https://github.com/smtc2web/smtc2web-website/edit/master/:path",
+      text: "在 GitHub 上编辑此页",
+    },
+    lastUpdated: {
+      text: "最后更新",
+    },
+    docFooter: {
+      prev: "上一篇",
+      next: "下一篇",
+    },
+    outline: {
+      level: [2, 3],
+      label: "本页目录",
+    },
+    sidebarMenuLabel: "目录",
+    returnToTopLabel: "回到顶部",
+    darkModeSwitchLabel: "外观",
+    lightModeSwitchTitle: "切换到浅色",
+    darkModeSwitchTitle: "切换到深色",
+    langMenuLabel: "语言",
+    externalLinkIcon: false,
+    notFound: {
+      title: "页面不存在",
+      quote: "这个地址没有对应的页面。可以从首页或 Wiki 重新找一下。",
+      linkLabel: "回到首页",
+      linkText: "回到首页",
+    },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "主页", link: "/" },
@@ -188,12 +219,7 @@ export default defineConfig({
         {
           text: "Wiki",
           items: [
-            {
-              text: "编译",
-              items: [
-                { text: "在 Windows 上编译", link: "/wiki/compile/windows.md" },
-              ],
-            },
+            { text: "编译", link: "/wiki/compile.md" },
             { text: "更改字体", link: "/wiki/change-fonts.md" },
             { text: "SMTC 协议适配列表", link: "/wiki/smtc-protocol-list.md" },
             { text: "主题开发指南", link: "/wiki/theme-dev-guide.md" },
@@ -204,6 +230,29 @@ export default defineConfig({
 
     search: {
       provider: "local",
+      options: {
+        translations: {
+          button: {
+            buttonText: "搜索",
+            buttonAriaLabel: "搜索",
+          },
+          modal: {
+            displayDetails: "显示详细列表",
+            resetButtonTitle: "清空搜索",
+            backButtonTitle: "关闭搜索",
+            noResultsText: "没有找到结果：",
+            footer: {
+              selectText: "选择",
+              selectKeyAriaLabel: "回车",
+              navigateText: "切换",
+              navigateUpKeyAriaLabel: "上箭头",
+              navigateDownKeyAriaLabel: "下箭头",
+              closeText: "关闭",
+              closeKeyAriaLabel: "Esc",
+            },
+          },
+        },
+      },
     },
 
     socialLinks: [

@@ -4,75 +4,60 @@ title: Blog
 
 <script setup>
 import { data } from "../.vitepress/posts-en.data.mjs";
+import { computed } from "vue";
 
-function formatDate(dateStr) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+const pad = (n) => String(n).padStart(2, "0");
+
+function formatDate(value) {
+  const d = new Date(value);
+  if (Number.isNaN(+d)) return "";
+  return `${d.getFullYear()}.${pad(d.getMonth() + 1)}.${pad(d.getDate())}`;
 }
+
+const total = data.length;
+const totalChars = data.reduce((sum, post) => sum + (post.chars || 0), 0);
+
+const groups = computed(() => {
+  const map = new Map();
+  for (const post of data) {
+    const year = new Date(post.frontmatter.date).getFullYear();
+    if (!map.has(year)) map.set(year, []);
+    map.get(year).push(post);
+  }
+  return [...map.entries()]
+    .sort((a, b) => b[0] - a[0])
+    .map(([year, items]) => ({ year, items }));
+});
 </script>
 
-<template v-for="post in data">
-  <article class="blog-post">
-    <h2 class="blog-post-title">
-      <a :href="post.url">{{ post.frontmatter.title }}</a>
-    </h2>
-    <div class="blog-post-meta">
-      <span class="date">{{ formatDate(post.frontmatter.date) }}</span>
-      <span class="author">{{ post.frontmatter.author }}</span>
-      <span v-if="post.frontmatter.category" class="category">{{ post.frontmatter.category }}</span>
-    </div>
-    <p v-if="post.frontmatter.description" class="blog-post-desc">{{ post.frontmatter.description }}</p>
-    <div v-if="post.frontmatter.tags" class="blog-post-tags">
-      <span v-for="tag in post.frontmatter.tags" class="tag">{{ tag }}</span>
-    </div>
-  </article>
+<p class="ef-field blog-ledger">
+  {{ total }} posts │ {{ totalChars.toLocaleString("en-US") }} characters │
+  newest first
+</p>
+
+<template v-for="group in groups" :key="group.year">
+  <h2 class="ef-group-head">
+    <span>{{ group.year }}</span>
+    <span class="ef-field">{{ group.items.length }} posts</span>
+  </h2>
+  <ol class="ef-records">
+    <li v-for="post in group.items" :key="post.url">
+      <a class="ef-record" :href="post.url">
+        <span class="ef-tag">{{ post.frontmatter.category || "Post" }}</span>
+        <time class="ef-field" :datetime="post.frontmatter.date">{{
+          formatDate(post.frontmatter.date)
+        }}</time>
+        <span class="name ef-read">{{ post.frontmatter.title }}</span>
+        <span class="ef-field">{{
+          post.chars ? `${post.chars.toLocaleString("en-US")} chars` : ""
+        }}</span>
+      </a>
+    </li>
+  </ol>
 </template>
 
 <style scoped>
-.blog-post {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--vp-c-divider);
-}
-.blog-post:last-of-type {
-  border-bottom: none;
-}
-.blog-post-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-.blog-post-title a {
-  color: var(--vp-c-text-1);
-  text-decoration: none;
-}
-.blog-post-title a:hover {
-  color: var(--vp-c-brand-1);
-}
-.blog-post-meta {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.875rem;
-  color: var(--vp-c-text-2);
-  margin-bottom: 0.75rem;
-}
-.blog-post-desc {
-  color: var(--vp-c-text-2);
-  margin: 0 0 0.5rem;
-  line-height: 1.6;
-}
-.blog-post-tags {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.tag {
-  display: inline-block;
-  padding: 0.125rem 0.5rem;
-  font-size: 0.75rem;
-  border-radius: 4px;
-  background: var(--vp-c-bg-soft);
-  color: var(--vp-c-text-2);
-  border: 1px solid var(--vp-c-divider);
+.blog-ledger {
+  margin: 0 0 1.5rem;
 }
 </style>

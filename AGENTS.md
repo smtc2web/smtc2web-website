@@ -91,6 +91,41 @@ Updating navigation:
 - `vitepress`: ^1.6.4 (documentation framework)
 - Vue 3 (via VitePress)
 
+## UI Theme (终末地风味)
+
+The site is skinned with an "Arknights: Endfield"-flavoured industrial theme.
+Everything lives in `.vitepress/theme/`:
+
+```
+.vitepress/theme/
+├── index.ts            # entry: imports endfield.css, then style.css
+├── endfield.css        # the part kit (buttons, record rows, eyebrows, command bar, ...)
+├── style.css           # maps VitePress onto that kit + home, code, tables, footer
+├── EndfieldHome.vue    # home page: wordmark, icon frame, latest posts
+├── CustomLayout.vue    # slot layout: page title strip, post meta, language switch, Bilibili card
+├── contours/           # faint background contour lines (SVG)
+└── fonts/              # Saira variable font (SIL OFL 1.1) + licence
+```
+
+**Variant card** — change the palette in one place, the `:root` block in `style.css`:
+
+- variant: `standard` (accent yellow `#FFFA00` / paper neutral / cut standard / ground contours / density standard / motion full)
+- main visual: the home cut-corner frame holding the product icon (`public/favicon.png`, the crab with headphones) with a plate that spells out the signal chain (Windows media session → local service `/api/now` → theme page → browser · OBS)
+- page types: home is a showcase page; blog, wiki and the other pages are reading pages
+
+Rules that keep it consistent:
+
+- One accent colour only, fill only, and only for "here / pressable / look at this". Never use it as a line or text on the light theme.
+- Red is for deleting things and nothing else. Radius is always 0; no shadows, glows or decorative gradients.
+- A cut corner means "pressable" (buttons, tags, chips, pagers); body text and pictures stay square.
+- Latin labels are wide and upper case with 0.14em tracking; Chinese keeps normal tracking and bold weight.
+- Numbers, dates and word counts are computed at build time (`posts.data.mjs`, `posts-en.data.mjs`, `wiki.data.mjs`) — never hard-code them.
+- All motion is disabled under `prefers-reduced-motion: reduce`.
+
+When adding a page or a part, reuse the `ef-` classes from `endfield.css` instead of
+inventing colours or borders. The three-colour strip appears in exactly two places:
+the top edge of the command bar and under a page title.
+
 ## Git
 
 Never commit:
