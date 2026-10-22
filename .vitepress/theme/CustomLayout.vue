@@ -48,6 +48,9 @@ const showComments = computed(() => {
   if (enabled === true) return true;
   return isPost.value || (isWiki.value && !isSectionIndex.value);
 });
+// giscus 的评论提交会直连 api.github.com，部分网络环境下会报 CORS Failed。
+// 暂时整体停用评论区；恢复时把这里改回 true 即可。
+const COMMENTS_ENABLED = false;
 const crumb = computed(() => {
   if (isSectionIndex.value) return null;
   if (filePath.value.startsWith("wiki/")) {
@@ -172,7 +175,10 @@ watch(() => page.value.relativePath, () => nextTick(markCurrent));
     </template>
 
     <template #doc-after>
-      <Giscus v-if="showComments" :key="page.relativePath" />
+      <Giscus
+        v-if="COMMENTS_ENABLED && showComments"
+        :key="page.relativePath"
+      />
     </template>
   </Layout>
 </template>
