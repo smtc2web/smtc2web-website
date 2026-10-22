@@ -1408,7 +1408,63 @@ html.dark #app .vp-doc a:not(.header-anchor):hover {
   margin: 0.6rem 0 0;
 }
 
-/* ---------- 11. 站脚 ---------- */
+/* ---------- 11. 评论区 ---------- */
+
+.ef-comments {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--ef-rule);
+  padding-top: 1.4rem;
+}
+
+.ef-comments-head .ef-eyebrow {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.ef-comments-head h2 {
+  margin: 0;
+  font-family: var(--ef-font-ui);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: var(--ef-ink);
+}
+
+.ef-comments-note {
+  margin: 0.7rem 0 1.35rem;
+}
+
+.ef-comments-note a {
+  color: var(--ef-ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--ef-signal);
+  text-decoration-thickness: 0.35em;
+  text-underline-offset: -0.18em;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-thickness 0.18s var(--ef-ease);
+}
+
+.ef-comments-note a:hover {
+  text-decoration-thickness: 1em;
+}
+
+html.dark .ef-comments-note a {
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.24em;
+}
+
+html.dark .ef-comments-note a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.ef-comments-mount .giscus,
+.ef-comments-mount .giscus-frame {
+  width: 100%;
+}
+
+/* ---------- 12. 站脚 ---------- */
 
 #app .VPFooter {
   border-top: 1px solid var(--ef-rule);

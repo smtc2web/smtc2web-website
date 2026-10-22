@@ -3,6 +3,7 @@ import DefaultTheme from "vitepress/theme";
 import { useData } from "vitepress";
 import { computed, nextTick, onMounted, watch } from "vue";
 import EndfieldHome from "./EndfieldHome.vue";
+import Giscus from "./Giscus.vue";
 import { data as enPosts } from "../posts-en.data.mjs";
 
 const { Layout } = DefaultTheme;
@@ -22,6 +23,7 @@ function formatDate(value) {
 const filePath = computed(() => page.value.filePath ?? "");
 const isHome = computed(() => frontmatter.value.layout === "home");
 const isBlog = computed(() => filePath.value.startsWith("posts/"));
+const isWiki = computed(() => filePath.value.startsWith("wiki/"));
 const isPost = computed(
   () =>
     isBlog.value &&
@@ -39,6 +41,13 @@ const isSectionIndex = computed(
     filePath.value === "posts/index.md" ||
     filePath.value === "posts/index.en.md"
 );
+// 文章页默认有评论区；列表页没有。单页可用 frontmatter 的 comments 开关覆盖
+const showComments = computed(() => {
+  const enabled = frontmatter.value.comments;
+  if (enabled === false) return false;
+  if (enabled === true) return true;
+  return isPost.value || (isWiki.value && !isSectionIndex.value);
+});
 const crumb = computed(() => {
   if (isSectionIndex.value) return null;
   if (filePath.value.startsWith("wiki/")) {
@@ -160,6 +169,10 @@ watch(() => page.value.relativePath, () => nextTick(markCurrent));
         />
         <p class="ef-field">UID 551264339</p>
       </aside>
+    </template>
+
+    <template #doc-after>
+      <Giscus v-if="showComments" :key="page.relativePath" />
     </template>
   </Layout>
 </template>
