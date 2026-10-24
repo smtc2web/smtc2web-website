@@ -188,12 +188,12 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "主页", link: "/" },
+      { text: "软件截图", link: "/screenshots" },
       { text: "博客", link: "/posts/" },
       { text: "主题商店", link: "https://themes.smtc2web.org" },
       { text: "关于", link: "/about" },
       { text: "隐私政策", link: "/privacy" },
       { text: "联系我", link: "/contact" },
-
       { text: "下载", link: "/download" },
       {
         text: "Wiki",
