@@ -39,6 +39,16 @@ const groups = [
       },
     ],
   },
+  {
+    zh: "审查报告",
+    en: "Audit reports",
+    items: [
+      {
+        zh: "2026 年 10 月 27 日安全审计与修复报告",
+        href: "/wiki/audit-report/20261027",
+      },
+    ],
+  },
 ];
 
 const total = groups.reduce((sum, group) => sum + group.items.length, 0);
