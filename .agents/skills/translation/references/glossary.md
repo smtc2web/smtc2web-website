@@ -43,6 +43,7 @@ Columns: `源 (zh-CN)` · `English` · `Notes`.
 | 更新日志 | Changelog | `category` value; also a common section heading. |
 | 新版本更新 | Release | `category` value. |
 | 公告板 | Announcements | `category` value. |
+| 文章 | Articles | `category` value. |
 | 重大更新 | Major update | |
 | 重大变更 | Breaking changes | |
 | 已知问题 | Known issues | |
@@ -107,6 +108,10 @@ Terms that recur in `posts/*.md` and were not covered above.
 | 创建日期 / 修复日期 | Created / Fixed | Security table headers. |
 | 严重 / 高 / 中 / 低 | Critical / High / Medium / Low | Security severity values. |
 | 网站翻新 | website refresh | Tag value and title wording; never "renovation". |
+| 国产音乐软件 | Chinese music software | Per site owner's instruction: 国产 → "Chinese", never "domestic". |
+| 网易云音乐 | NetEase Cloud Music | Official English name. |
+| QQ 音乐 | QQ Music | Official English name. |
+| 媒体控件 | media controls | KDE Plasma widget context. |
 
 ## Other languages
 
