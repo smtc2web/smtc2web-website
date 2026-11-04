@@ -112,6 +112,15 @@ Terms that recur in `posts/*.md` and were not covered above.
 | 网易云音乐 | NetEase Cloud Music | Official English name. |
 | QQ 音乐 | QQ Music | Official English name. |
 | 媒体控件 | media controls | KDE Plasma widget context. |
+| 主题商店 | Theme Store | Product feature name; capitalize. |
+| 快速上手引导 | onboarding guide | First-run guide; lowercase in prose. |
+| 关于页面 | About page | |
+| 自绘组件 | custom-drawn component | |
+| 静态启动外壳 | static startup shell | |
+| 进程过滤器 | process filter | |
+| 主题处理 | theme handling | |
+| 安全审计 | security audit | |
+| 统计图 | stats chart | |
 
 ## Other languages
 
