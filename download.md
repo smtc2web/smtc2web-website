@@ -1,17 +1,19 @@
 # 下载
 
-<p class="ef-field">最新版本 0.6.8 │ 2026.10.13 │ Windows · Linux</p>
+<p class="ef-field">最新版本 0.7.1 │ 2026.10.13 │ Windows · Linux</p>
 
 ## 最新版本
 
 |平台|文件类型|架构|GitHub|官方下载站|
 |-|-|-|-|-|
-|Windows|.exe|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.6.8/smtc2web_0.6.8_x64-setup.exe)|[下载](https://download.smtc2web.org/v0.6.8/smtc2web_0.6.8_x64-setup.exe)|
-|Windows|.exe|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.6.8/smtc2web_0.6.8_arm64-setup.exe)|[下载](https://download.smtc2web.org/v0.6.8/smtc2web_0.6.8_arm64-setup.exe)|
-|Linux|.deb|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.6.8/smtc2web_0.6.8_amd64.deb)|[下载](https://download.smtc2web.org/v0.6.8/smtc2web_0.6.8_amd64.deb)|
-|Linux|.deb|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.6.8/smtc2web_0.6.8_arm64.deb)|[下载](https://download.smtc2web.org/v0.6.8/smtc2web_0.6.8_arm64.deb)|
-|Linux|.rpm|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.6.8/smtc2web-0.6.8-1.x86_64.rpm)|[下载](https://download.smtc2web.org/v0.6.8/smtc2web-0.6.8-1.x86_64.rpm)|
-|Linux|.rpm|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.6.8/smtc2web-0.6.8-1.aarch64.rpm)|[下载](https://download.smtc2web.org/v0.6.8/smtc2web-0.6.8-1.aarch64.rpm)|
+|Windows|.exe|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web_0.7.1_x64-setup.exe)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web_0.7.1_x64-setup.exe)|
+|Windows|.exe|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web_0.7.1_arm64-setup.exe)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web_0.7.1_arm64-setup.exe)|
+|Linux|.deb|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web_0.7.1_amd64.deb)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web_0.7.1_amd64.deb)|
+|Linux|.deb|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web_0.7.1_arm64.deb)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web_0.7.1_arm64.deb)|
+|Linux|.rpm|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web-0.7.1-1.x86_64.rpm)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web-0.7.1-1.x86_64.rpm)|
+|Linux|.rpm|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web-0.7.1-1.aarch64.rpm)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web-0.7.1-1.aarch64.rpm)|
+|Linux|.Appimage|x86_64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web_0.7.1_amd64.AppImage)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web_0.7.1_amd64.AppImage)|
+|Linux|.Appimage|Arm64|[下载](https://github.com/smtc2web/smtc2web/releases/download/v0.7.1/smtc2web_0.7.1_aarch64.AppImage)|[下载](https://download.smtc2web.org/v0.7.1/smtc2web_0.7.1_aarch64.AppImage)|
 
 ## 历史版本
 
