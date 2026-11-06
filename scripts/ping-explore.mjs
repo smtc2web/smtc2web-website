@@ -3,8 +3,12 @@
 // 同一个博客两次读取至少间隔 5 分钟，因此频繁 ping 是安全的。
 // ping 只能加快已收录博客的更新，不能收录新博客。
 //
-// 只在 CI 中构建时发送（部署平台的自动构建），本地 `pnpm docs:build` 不受影响。
-// 发送失败只警告、不报错：ping 不是部署的一部分，不应让构建因此失败。
+// 调用时机：由 .github/workflows/ping-explore.yml 在 Cloudflare Pages 确认发布成功后执行，
+// 因此 ping 一定发生在站点上线之后，Explore 不会读到旧 feed。
+// Cloudflare Pages 的构建命令（pnpm docs:build）里不再调用本脚本——构建阶段早于发布。
+//
+// 只在 CI 中发送（GitHub Actions 会设置 CI=true），本地手动运行不受影响。
+// 发送失败只警告、不报错：ping 不是部署的一部分，不应让流程因此失败。
 
 const EXPLORE_PING_URL = "https://explore.kite.plus/api/v1/ping";
 // 与 .vitepress/config.mts 中的 siteUrl 保持一致。
