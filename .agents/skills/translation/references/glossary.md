@@ -121,6 +121,15 @@ Terms that recur in `posts/*.md` and were not covered above.
 | 主题处理 | theme handling | |
 | 安全审计 | security audit | |
 | 统计图 | stats chart | |
+| 主题商店市场 | Theme Store marketplace | 主题商店 → Theme Store; 市场 → marketplace. |
+| 愿景 | Vision | Section heading. |
+| 前提条件 | Prerequisites | Section heading. |
+| 命令行工具 | command-line tool | |
+| 前端框架 | front-end framework | |
+| 主播 | streamer | |
+| 直播 | livestream | |
+| 手搓 | hand-craft / build by hand | Slang; render as "crafting … by hand". |
+| Vibe Coding | Vibe Coding | Keep as-is. |
 
 ## Other languages
 
